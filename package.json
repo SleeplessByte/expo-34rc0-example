@@ -20,6 +20,7 @@
   "devDependencies": {
     "@types/react": "^16.8.23",
     "@types/react-native": "^0.60.2",
+    "eslint-config-universe": "2.0.0-alpha.0",
     "typescript": "^3.5.3"
   },
   "private": true

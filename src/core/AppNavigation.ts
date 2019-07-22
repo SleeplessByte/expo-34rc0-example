@@ -18,6 +18,14 @@ if (IS_NATIVE) {
   useScreens()
 }
 
+function testTSFlowPlugin(response: string | number): response is string {
+  return typeof response === 'string'
+}
+
+if (testTSFlowPlugin('a') && testTSFlowPlugin(1)) {
+  console.log('a')
+}
+
 const AppNavigator = createStackNavigator({
   Home: { screen: HomeScreen, path: '/' },
   Other: { screen: OtherScreen, path: '/other' }

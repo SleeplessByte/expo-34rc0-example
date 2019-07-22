@@ -62,9 +62,9 @@ export default function App() {
 
   return (
     <PaperProvider theme={ExpoTheme}>
-      <SafeAreaView style={{ flex: 1 }}>
+      <CrossPlatformSafeAreaView backgroundColor="#123456">
         <AppNavigation style={{ flex: 1 }} />
-      </SafeAreaView>
+      </CrossPlatformSafeAreaView>
     </PaperProvider>
   )
 }

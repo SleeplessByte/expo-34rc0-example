@@ -262,6 +262,27 @@ yarn expo start
 
 It now builds and loads and works on Android.
 
+## Tag boom-6
+
+**However**, given the flow errors above, I assumed there was something fishy with the types, so I added a few "typescript-only" types to the project, to see if that worked. I had to restart expo completely to make this fail:
+
+```text
+Failed to compile.
+path/to/expo-34rc0-example/src/core/AppNavigation.ts
+  Line 21:  Parsing error: Unexpected token, expected "{"
+
+  19 | }
+  20 |
+> 21 | function testTSFlowPlugin(response: string | number): response is string {
+     |                                                                ^
+  22 |   return typeof response === 'string'
+  23 | }
+  24 |
+```
+
+My guess is that it's actually stripping _flow_ types and not _TypeScript_ types as a type guard like this doesn't exist in flow.
+
+
 ## License
 
 The `notification.png` is licensed via the [StreamLine Standard License](https://streamlineicons.com/ux/standard-license.html) to [XP Bytes](https://xpbytes.com). You may not use this without a StreamLine Standard or Extended License.

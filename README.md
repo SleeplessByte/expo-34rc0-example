@@ -166,7 +166,26 @@ Occurred while linting path\to\expo-34rc0-example\App.tsx:1
     at Array.forEach (<anonymous>)
 ```
 
+(Make sure to exit expo-cli now, because it won't be able to unlink/link new dependency files as the babel folder is "read-only" right now)
 
+Try to fix it by adding prettier to the local dependencies
+
+```bash
+yarn add prettier -D
+```
+
+Restart expo
+```bash
+expo start --web
+```
+
+It will now fail because I placed `assets` in the wrong folder. Moving them one folder up, and running again.
+
+## Tab boom-4
+
+```text
+
+```
 
 ## License
 

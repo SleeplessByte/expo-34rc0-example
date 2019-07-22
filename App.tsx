@@ -72,9 +72,8 @@ export default function App() {
 
 async function cacheResources(): Promise<void> {
   const images = [
-    require('./assets/web-icon.png'),
-    require('./assets/splash.png'),
-    require('./assets/profile.png'),
+    require('./assets/splash.template.png'),
+    require('./assets/icon.png'),
     require('./assets/notification.png')
   ]
 

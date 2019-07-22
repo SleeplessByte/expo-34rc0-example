@@ -87,32 +87,32 @@ Restart expo
 expo start --web
 ```
 
-## Tab boom-2
+## Tag boom-2
 
 ```text
 Failed to compile.
-C:/Users/Derk-Jan/Documents/Github/expo-34rc0-example/App.tsx
+path/to/expo-34rc0-example/App.tsx
 Error: Failed to load plugin 'babel' declared in 'BaseConfig » eslint-config-universe/web » ./shared/core.js': Cannot find module 'eslint'
 Require stack:
-- C:\Users\Derk-Jan\Documents\Github\expo-34rc0-example\node_modules\eslint-plugin-babel\rules\new-cap.js
-- C:\Users\Derk-Jan\Documents\Github\expo-34rc0-example\node_modules\eslint-plugin-babel\index.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\eslint\lib\cli-engine\config-array-factory.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\eslint\lib\cli-engine\cascading-config-array-factory.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\eslint\lib\cli-engine\cli-engine.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\eslint\lib\cli-engine\index.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\eslint\lib\api.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\eslint-loader\index.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\loader-runner\lib\loadLoader.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\loader-runner\lib\LoaderRunner.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\webpack\lib\NormalModule.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\webpack\lib\NormalModuleFactory.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\webpack\lib\Compiler.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\webpack\lib\webpack.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\@expo\xdl\build\Webpack.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\@expo\xdl\build\Project.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\@expo\xdl\build\xdl.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\expo-cli\build\exp.js
-- C:\Users\Derk-Jan\AppData\Local\Yarn\Data\global\node_modules\expo-cli\bin\expo.js
+- path\to\expo-34rc0-example\node_modules\eslint-plugin-babel\rules\new-cap.js
+- path\to\expo-34rc0-example\node_modules\eslint-plugin-babel\index.js
+- path\to\global\node_modules\eslint\lib\cli-engine\config-array-factory.js
+- path\to\global\node_modules\eslint\lib\cli-engine\cascading-config-array-factory.js
+- path\to\global\node_modules\eslint\lib\cli-engine\cli-engine.js
+- path\to\global\node_modules\eslint\lib\cli-engine\index.js
+- path\to\global\node_modules\eslint\lib\api.js
+- path\to\global\node_modules\eslint-loader\index.js
+- path\to\global\node_modules\loader-runner\lib\loadLoader.js
+- path\to\global\node_modules\loader-runner\lib\LoaderRunner.js
+- path\to\global\node_modules\webpack\lib\NormalModule.js
+- path\to\global\node_modules\webpack\lib\NormalModuleFactory.js
+- path\to\global\node_modules\webpack\lib\Compiler.js
+- path\to\global\node_modules\webpack\lib\webpack.js
+- path\to\global\node_modules\@expo\xdl\build\Webpack.js
+- path\to\global\node_modules\@expo\xdl\build\Project.js
+- path\to\global\node_modules\@expo\xdl\build\xdl.js
+- path\to\global\node_modules\expo-cli\build\exp.js
+- path\to\global\node_modules\expo-cli\bin\expo.js
     at Array.reduce (<anonymous>)
     at _normalizeObjectConfigDataBody.next (<anonymous>)
     at _normalizeObjectConfigData.next (<anonymous>)
@@ -121,6 +121,52 @@ Require stack:
     at _normalizeObjectConfigDataBody.next (<anonymous>)
     at _normalizeObjectConfigData.next (<anonymous>)
 ```
+
+(Make sure to exit expo-cli now, because it won't be able to unlink/link new dependency files as the babel folder is "read-only" right now)
+
+First try to fix it by adding eslint to the local dependencies
+
+```bash
+yarn add eslint -D
+```
+
+Restart expo
+```bash
+expo start --web
+```
+
+## Tag boom-3
+
+Now that it has found eslint, it can't find prettier:
+
+```text
+C:/Users/Derk-Jan/Documents/Github/expo-34rc0-example/App.tsx
+Error: Cannot find module 'prettier'
+Require stack:
+- path\to\expo-34rc0-example\node_modules\eslint-plugin-prettier\eslint-plugin-prettier.js
+- path\to\global\node_modules\eslint\lib\cli-engine\config-array-factory.js
+- path\to\global\node_modules\eslint\lib\cli-engine\cascading-config-array-factory.js
+- path\to\global\node_modules\eslint\lib\cli-engine\cli-engine.js
+- path\to\global\node_modules\eslint\lib\cli-engine\index.js
+- path\to\global\node_modules\eslint\lib\api.js
+- path\to\global\node_modules\eslint-loader\index.js
+- path\to\global\node_modules\loader-runner\lib\loadLoader.js
+- path\to\global\node_modules\loader-runner\lib\LoaderRunner.js
+- path\to\global\node_modules\webpack\lib\NormalModule.js
+- path\to\global\node_modules\webpack\lib\NormalModuleFactory.js
+- path\to\global\node_modules\webpack\lib\Compiler.js
+- path\to\global\node_modules\webpack\lib\webpack.js
+- path\to\global\node_modules\@expo\xdl\build\Webpack.js
+- path\to\global\node_modules\@expo\xdl\build\Project.js
+- path\to\global\node_modules\@expo\xdl\build\xdl.js
+- path\to\global\node_modules\expo-cli\build\exp.js
+- path\to\global\node_modules\expo-cli\bin\expo.js
+Occurred while linting path\to\expo-34rc0-example\App.tsx:1
+    at Array.forEach (<anonymous>)
+    at Array.forEach (<anonymous>)
+```
+
+
 
 ## License
 

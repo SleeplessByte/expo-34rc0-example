@@ -191,6 +191,25 @@ path/to/expo-34rc0-example/node_modules/@react-navigation/native/dist/Scrollable
 Module not found: Can't resolve 'react-native-gesture-handler' in 'path\to\expo-34rc0-example\node_modules\@react-navigation\native\dist'
 ```
 
+Fix by adding this dependency manually via expo install
+
+```bash
+yarn expo install react-native-gesture-handler
+```
+
+Restart expo
+
+```bash
+yarn expo start --web
+```
+
+## Tag boom-5
+
+```
+Failed to compile.
+path/to//expo-34rc0-example/node_modules/react-native-paper/src/components/Button.js
+Module not found: Can't resolve 'react-native-web/dist/exports/ActivityIndicator' in 'path\to\\expo-34rc0-example\node_modules\react-native-paper\src\components'
+```
 
 
 ## License

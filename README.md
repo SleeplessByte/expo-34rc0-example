@@ -211,6 +211,31 @@ path/to//expo-34rc0-example/node_modules/react-native-paper/src/components/Butto
 Module not found: Can't resolve 'react-native-web/dist/exports/ActivityIndicator' in 'path\to\\expo-34rc0-example\node_modules\react-native-paper\src\components'
 ```
 
+Fix by manually adding react-native-web:
+
+```bash
+# Note: the babel plugins DID install, but the package react-native-web did not
+yarn expo install react-native-web
+```
+
+Restart expo
+```bash
+yarn expo start --web
+```
+
+It will compile with prettier warnings, but the web compilation will actually not succeed. All the tags are NOT replaced in the final HTMl (meaning, you still see `%LANG_ISO_CODE%` `%ROOT_ID%` etc etc).
+
+Instead of web, try to run on android via the QR code or URL. It will correctly compain that 34.0.0 is not valid. Change to UNVERSIONED per the examples in the expo repo during release branches.
+
+Restart expo
+```bash
+yarn expo start --web
+
+# Error: Using unversioned Expo SDK. Do not publish until you set sdkVersion in app.json
+# Note to self: This is expected :)
+```
+
+It actually shows the splash now and starts building.
 
 ## License
 

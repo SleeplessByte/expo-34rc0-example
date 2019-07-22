@@ -4,7 +4,7 @@
     "description": "Reproducible example of expo 34 RC0 issues",
     "slug": "expo-34-rc0-boom",
     "privacy": "unlisted",
-    "sdkVersion": "34.0.0",
+    "sdkVersion": "UNVERSIONED",
     "platforms": [
       "ios",
       "android",

@@ -140,7 +140,7 @@ expo start --web
 Now that it has found eslint, it can't find prettier:
 
 ```text
-C:/Users/Derk-Jan/Documents/Github/expo-34rc0-example/App.tsx
+path/to//expo-34rc0-example/App.tsx
 Error: Cannot find module 'prettier'
 Require stack:
 - path\to\expo-34rc0-example\node_modules\eslint-plugin-prettier\eslint-plugin-prettier.js
@@ -183,9 +183,15 @@ It will now fail because I placed `assets` in the wrong folder. Moving them one 
 
 ## Tab boom-4
 
-```text
+When the assets are fixed, the following error appears:
 
+```text
+Failed to compile.
+path/to/expo-34rc0-example/node_modules/@react-navigation/native/dist/Scrollables.js
+Module not found: Can't resolve 'react-native-gesture-handler' in 'path\to\expo-34rc0-example\node_modules\@react-navigation\native\dist'
 ```
+
+
 
 ## License
 

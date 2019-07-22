@@ -225,6 +225,14 @@ yarn expo start --web
 
 It will compile with prettier warnings, but the web compilation will actually not succeed. All the tags are NOT replaced in the final HTMl (meaning, you still see `%LANG_ISO_CODE%` `%ROOT_ID%` etc etc).
 
+It also has a flow-type error:
+
+```text
+  Line 26:  Type annotations require valid Flow declaration                                                                                          flowtype/no-types-missing-file-a
+```
+
+This plugin should not have been on for a `.tsx` file (!).
+
 Instead of web, try to run on android via the QR code or URL. It will correctly compain that 34.0.0 is not valid. Change to UNVERSIONED per the examples in the expo repo during release branches.
 
 Restart expo
@@ -236,6 +244,23 @@ yarn expo start --web
 ```
 
 It actually shows the splash now and starts building.
+
+`react-native-device-info` actually doesn't work (I think it was removed/reverted on one of the last changes before the release branch), so this will blow up.
+
+```bash
+yarn remove react-native-device-info
+```
+
+Change the safe area view to just assume a notch (otherwise everything will be broken on a lot of android phones)
+
+Restart expo (web still silently fails)
+```
+yarn expo start
+```
+
+## Tag working-1
+
+It now builds and loads and works on Android.
 
 ## License
 

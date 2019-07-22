@@ -3,13 +3,12 @@ import { Provider as PaperProvider, ThemeShape as PaperTheme, DefaultTheme } fro
 
 import { AppLoading, SplashScreen } from 'expo'
 import { Asset } from 'expo-asset'
-import { Platform, SafeAreaView, View } from 'react-native'
+import { SafeAreaView, View } from 'react-native'
 // import Sentry from 'sentry-expo'
 
-import DeviceInfo from 'react-native-device-info'
+// import DeviceInfo from 'react-native-device-info'
 import { AppNavigation } from './src/core/AppNavigation';
-const HasNotch = DeviceInfo.hasNotch()
-const IS_ANDROID = Platform.OS === "android"
+import { IS_ANDROID, HAS_NOTCH } from './src/platform';
 
 function CrossPlatformSafeAreaView({ children, backgroundColor }: { children: React.ReactChild, backgroundColor: string }): JSX.Element {
   // Previously, SafeAreaView only worked on IOS, leaving newer Android devices
@@ -22,7 +21,7 @@ function CrossPlatformSafeAreaView({ children, backgroundColor }: { children: Re
 
   if (IS_ANDROID) {
     return (
-      <View style={{ paddingTop: HasNotch ? 36 : 0, flex: 1, backgroundColor }}>
+      <View style={{ paddingTop: HAS_NOTCH ? 36 : 0, flex: 1, backgroundColor }}>
         {children}
       </View>
     )

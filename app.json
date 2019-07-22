@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Expo SDK 34 RC0",
+    "description": "Reproducible example of expo 34 RC0 issues",
+    "slug": "expo-34-rc0-boom",
+    "privacy": "unlisted",
+    "sdkVersion": "34.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "githubUrl": "https://github.com/SleeplessByte/expo-34rc0-example",
+    "orientation": "portrait",
+    "primaryColor": "#fff",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#bbb"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
